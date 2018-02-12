@@ -15,13 +15,13 @@ public class mainPresenter {
     private TextView tx;
 
     public mainPresenter() {
+        modelCalc = new Calculations();
     }
 
 
     public void onClick (View view) {
         mView=view;
-    //do something
-        updateView();
+        calculate();
     }
 
 
@@ -33,8 +33,13 @@ public class mainPresenter {
         this.mView = mView;
     }
 
-    public void updateView () {
+    public void updateView (String str) {
     tx=(TextView) mView.findViewById(R.id.text);
-    tx.setText("Test");
+    tx.setText(str);
+    }
+
+    public void calculate () {
+    int ret = modelCalc.plus(1,1);
+    updateView(String.valueOf(ret));
     }
 }

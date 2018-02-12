@@ -9,4 +9,8 @@ public class Calculations {
     public Calculations() {
 
     };
+
+    public int plus (int a, int b) {
+        return a+b;
+    }
 }

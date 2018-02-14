@@ -6,29 +6,28 @@ package com.example.gamecam.modeltest.main.injects;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
+import com.example.gamecam.modeltest.ApplicationScope;
 import com.example.gamecam.modeltest.main.ui.MainPresenter;
-import com.example.gamecam.modeltest.main.ui.MainPresenterInterface;
 
 import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
+
 
 @Module
 public class MainPModul {
 
     private Context context;
 
-    public MainPModul (Context context) {
-
+    public MainPModul(Context context) {
         this.context = context;
     }
 
     @Provides
+    @ApplicationScope
     MainPresenter getPresenter() {
         return new MainPresenter(context);
     }
-
-
 }

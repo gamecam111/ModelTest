@@ -1,4 +1,4 @@
-package com.example.gamecam.modeltest;
+package com.example.gamecam.modeltest.SecondScreen;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 
+import com.example.gamecam.modeltest.R;
 import com.example.gamecam.modeltest.main.ui.MainActivity;
 
 import javax.inject.Inject;

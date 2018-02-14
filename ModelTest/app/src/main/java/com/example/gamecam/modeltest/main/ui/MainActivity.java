@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.gamecam.modeltest.R;
-import com.example.gamecam.modeltest.Screen2;
-import com.example.gamecam.modeltest.main.injects.DaggerMyComponent;
+import com.example.gamecam.modeltest.SecondScreen.Screen2;
+//import com.example.gamecam.modeltest.main.injects.DaggerMyComponent;
+import com.example.gamecam.modeltest.StartApplication;
 import com.example.gamecam.modeltest.main.injects.MainPModul;
 import com.example.gamecam.modeltest.main.injects.MyComponent;
 
@@ -35,8 +36,11 @@ public class MainActivity extends AppCompatActivity {
         btnSave=findViewById(R.id.btnSave);
         btnGet=findViewById(R.id.btnnn);
 
-        myComponent = DaggerMyComponent.builder().mainPModul(new MainPModul(this)).build();
-        myComponent.inject(this);
+        StartApplication.get(this)
+                .component()
+                .plus(new MainPModul(getApplicationContext()))
+                .inject(this);
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        System.out.println("**************"+mp.getActual());
-        mp.setText("toto je test");
+        //System.out.println("**************"+mp.getActual());
+        //mp.setText("toto je test");
 
     }
 

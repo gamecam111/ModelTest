@@ -7,13 +7,17 @@ import android.view.View;
 
 
 import com.example.gamecam.modeltest.R;
+import com.example.gamecam.modeltest.StartApplication;
+import com.example.gamecam.modeltest.main.injects.MainPModul;
 import com.example.gamecam.modeltest.main.ui.MainActivity;
+import com.example.gamecam.modeltest.main.ui.MainPresenter;
 
 import javax.inject.Inject;
 
 public class Screen2 extends AppCompatActivity {
 
-
+    @Inject
+    MainPresenter mp;
 
 
     @Override
@@ -21,6 +25,13 @@ public class Screen2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen2);
 
+        StartApplication.get(this)
+                .component()
+                .plus(new MainPModul(getApplicationContext()))
+                .inject(this);
+
+        System.out.println(mp.getActual());
+        System.out.println(mp.plus(mp.getActual(), 1));
     }
 
     public void back (View view) {

@@ -19,11 +19,12 @@ public class MainPresenter {
     private Context mContext;
     public TextView tx;
     public int actual=0;
+    private MainModel md;
 
     @Inject
     public MainPresenter(Context cn) {
         this.mContext = cn;
-        //md= new MainModel();
+        md= new MainModel();
 
     }
 
@@ -47,5 +48,9 @@ public class MainPresenter {
     public void setText (String text) {
         tx=(TextView) ((Activity) mContext).findViewById(R.id.textView);
         tx.setText(text);
+    }
+
+    public int plus (int a, int b) {
+        return md.doPlus (a,b);
     }
 }

@@ -5,6 +5,7 @@ package com.example.gamecam.modeltest.main.injects;
  */
 
 import com.example.gamecam.modeltest.ApplicationScope;
+import com.example.gamecam.modeltest.SecondScreen.Screen2;
 import com.example.gamecam.modeltest.main.ui.MainActivity;
 
 import javax.inject.Singleton;
@@ -18,4 +19,5 @@ import dagger.Subcomponent;
 
 public interface MyComponent {
     void inject(MainActivity activity);
+    void inject(Screen2 activity);
 }

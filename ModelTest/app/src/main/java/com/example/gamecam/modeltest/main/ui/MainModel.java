@@ -13,9 +13,12 @@ public class MainModel {
 
 
     public MainModel() {
-
     };
 
+    public int doPlus(int a, int b) {
+
+        return a+b;
+    }
 
 
 }
